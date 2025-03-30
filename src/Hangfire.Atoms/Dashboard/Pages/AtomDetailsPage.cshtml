@@ -1,5 +1,4 @@
-﻿@* Generator: Template TypeVisibility: Internal GeneratePrettyNames: True *@
-@using System
+﻿@using System
 @using System.Collections.Generic
 @using System.Linq
 @using Hangfire
@@ -21,7 +20,7 @@
     Layout = new LayoutPage(title);
 
     HashSet<string> subatomIds;
-    using (var connection = Storage.GetJobStorageConnection())
+    using (var connection = Storage.GetConnection())
     {
         subatomIds = connection.GetAllItemsFromSet(Atom.GenerateSubAtomKeys(jobId));
     }

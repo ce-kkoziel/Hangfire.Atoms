@@ -1,6 +1,6 @@
 ﻿namespace Hangfire.Atoms.Dashboard.Pages
 {
-    internal partial class AtomDetailsPage
+    partial class AtomDetailsPage
     {
         public string JobId { get; }
 
