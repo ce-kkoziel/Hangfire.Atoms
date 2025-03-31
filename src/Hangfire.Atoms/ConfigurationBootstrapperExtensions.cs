@@ -40,17 +40,17 @@ namespace Hangfire.Atoms
             DashboardRoutes.Routes.AddClientBatchCommand("/jobs/atoms/delete", (client, jobId) => client.Delete(jobId));
             DashboardRoutes.Routes.AddRazorPage("/jobs/atoms/(?<JobId>.+)", x => new AtomDetailsPage(x.Groups["JobId"].Value));
 
-            JobHistoryRenderer.AddBackgroundStateColor(AtomCreatingState.StateName, "#e0f7fa");
-            JobHistoryRenderer.AddForegroundStateColor(AtomCreatingState.StateName, "#00acc1");
+            JobHistoryRenderer.AddStateCssSuffix(AtomCreatingState.StateName, "#e0f7fa");
+            JobHistoryRenderer.AddStateCssSuffix(AtomCreatingState.StateName, "#00acc1");
 
-            JobHistoryRenderer.AddBackgroundStateColor(SubAtomCreatedState.StateName, "#e0f7fa");
-            JobHistoryRenderer.AddForegroundStateColor(SubAtomCreatedState.StateName, "#0097a7");
+            JobHistoryRenderer.AddStateCssSuffix(SubAtomCreatedState.StateName, "#e0f7fa");
+            JobHistoryRenderer.AddStateCssSuffix(SubAtomCreatedState.StateName, "#0097a7");
 
-            JobHistoryRenderer.AddBackgroundStateColor(AtomCreatedState.StateName, "#e0f7fa");
-            JobHistoryRenderer.AddForegroundStateColor(AtomCreatedState.StateName, "#00838f");
+            JobHistoryRenderer.AddStateCssSuffix(AtomCreatedState.StateName, "#e0f7fa");
+            JobHistoryRenderer.AddStateCssSuffix(AtomCreatedState.StateName, "#00838f");
 
-            JobHistoryRenderer.AddBackgroundStateColor(AtomRunningState.StateName, "#fff3e0");
-            JobHistoryRenderer.AddForegroundStateColor(AtomRunningState.StateName, "#ef6c00");
+            JobHistoryRenderer.AddStateCssSuffix(AtomRunningState.StateName, "#fff3e0");
+            JobHistoryRenderer.AddStateCssSuffix(AtomRunningState.StateName, "#ef6c00");
 
             JobHistoryRenderer.Register(SubAtomCreatedState.StateName, AtomJobHistoryRenderer.AtomRender);
             JobHistoryRenderer.Register(AtomCreatingState.StateName, JobHistoryRenderer.NullRenderer);
@@ -60,8 +60,8 @@ namespace Hangfire.Atoms
             JobsSidebarMenu.Items.Add(AtomJobSidebar.RenderMenu);
 
             // Triggers
-            JobHistoryRenderer.AddBackgroundStateColor(TriggerWaitingState.StateName, "#e6f7ff");
-            JobHistoryRenderer.AddForegroundStateColor(TriggerWaitingState.StateName, "#e91e63");
+            JobHistoryRenderer.AddStateCssSuffix(TriggerWaitingState.StateName, "#e6f7ff");
+            JobHistoryRenderer.AddStateCssSuffix(TriggerWaitingState.StateName, "#e91e63");
 
             JobHistoryRenderer.Register(TriggerWaitingState.StateName, JobHistoryRenderer.NullRenderer);
 
